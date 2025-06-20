@@ -4,9 +4,20 @@ using Bodde.Library.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddInfrastructure();
+builder.Services.AddInfrastructure(new InfrastructureConfig
+{
+    ConnectionString = "Data Source=library.db",
+    Provider = "Sqlite" // Change to "SqlServer" for SQL Server
+});
+
 builder.Services.AddApplication();
 builder.Services.AddControllers();
+
+// Register EF Core developer exception filter only in Development
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+}
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
