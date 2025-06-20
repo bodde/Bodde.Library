@@ -108,3 +108,126 @@ This project is licensed under the MIT License.
 - **API**: Controllers, request/response models.
 
 *Bodde.Library - Library Management System*
+
+---
+
+## Classic Use Cases
+
+Below are the classic use cases the API should implement, including input, logic/business rules, output, and possible errors.
+
+### 1. Register User (External Authentication)
+- **Input:** User details (name, email, optional additional info) received after successful authentication with an external OpenID Connect/OAuth2 provider.
+- **Logic:**  
+  - Receive user identity from external provider (e.g., via callback or token).
+  - Use email or username from the external provider to link or create a local user entity.
+  - If user does not exist locally, create a new user with default role (e.g., Member).
+  - Do not manage password locally.
+  - Roles and permissions are managed in the local database and are not part of JWT claims.
+- **Output:** Confirmation of registration or linking, user ID.
+- **Errors:** Email already exists (if trying to register manually), invalid input, external authentication failed.
+
+### 2. Login (External Authentication)
+- **Input:** Authentication via external OpenID Connect/OAuth2 provider (no password handled by API).
+- **Logic:**  
+  - Redirect user to external provider for authentication.
+  - On successful authentication, receive user info (email/username).
+  - Look up local user entity by email/username.
+  - If user exists, allow login and issue session/token as needed.
+  - If user does not exist, optionally auto-register or deny access.
+  - Roles and permissions are loaded from local database, not from JWT claims.
+- **Output:** Auth/session token (if needed), user info.
+- **Errors:** Invalid credentials at provider, user not found locally, external authentication failed.
+
+### 3. Assign/Update User Roles and Permissions (Admin/Librarian)
+- **Input:** User ID, roles and/or permissions to assign or update.
+- **Logic:**  
+  - Only administrators or librarians can assign or update roles and permissions.
+  - Update roles and permissions in the local database.
+  - Changes are effective immediately for authorization checks, regardless of JWT claims.
+- **Output:** Confirmation, updated user info.
+- **Errors:** User not found, permission denied, invalid input.
+
+### 4. Add Book
+- **Input:** Book details (title, authors, ISBN, categories, published year, copies)
+- **Logic:**  
+  - Validate input.
+  - Check for duplicate ISBN.
+  - Create book and associate authors/categories.
+- **Output:** Book ID, confirmation.
+- **Errors:** Duplicate ISBN, invalid input, permission denied.
+
+### 5. Update Book
+- **Input:** Book ID, updated details
+- **Logic:**  
+  - Validate input.
+  - Check if book exists.
+  - Update book details.
+- **Output:** Confirmation, updated book info.
+- **Errors:** Book not found, invalid input, permission denied.
+
+### 6. Delete Book
+- **Input:** Book ID
+- **Logic:**  
+  - Check if book exists.
+  - Ensure no active loans for the book.
+  - Delete book.
+- **Output:** Confirmation.
+- **Errors:** Book not found, book on loan, permission denied.
+
+### 7. Search/List Books
+- **Input:** Search filters (title, author, category, ISBN, etc.)
+- **Logic:**  
+  - Query books based on filters.
+  - Paginate results.
+- **Output:** List of books matching criteria.
+- **Errors:** None (empty list if no match).
+
+### 8. Borrow Book (Loan)
+- **Input:** User ID, Book ID
+- **Logic:**  
+  - Check user eligibility (e.g., max loans, outstanding fines).
+  - Check book availability.
+  - Create loan record with due date.
+- **Output:** Loan confirmation, due date.
+- **Errors:** Book unavailable, user not eligible, permission denied.
+
+### 9. Return Book
+- **Input:** Loan ID
+- **Logic:**  
+  - Check if loan exists and is active.
+  - Mark loan as returned, record return date.
+  - Calculate and record any late fees.
+- **Output:** Confirmation, any fees due.
+- **Errors:** Loan not found, already returned, permission denied.
+
+### 10. Reserve Book
+- **Input:** User ID, Book ID
+- **Logic:**  
+  - Check if book is available or already reserved.
+  - Create reservation if allowed.
+- **Output:** Reservation confirmation, position in queue.
+- **Errors:** Book available (no need to reserve), already reserved by user, permission denied.
+
+### 11. Cancel Reservation
+- **Input:** Reservation ID
+- **Logic:**  
+  - Check if reservation exists and belongs to user.
+  - Cancel reservation.
+- **Output:** Confirmation.
+- **Errors:** Reservation not found, permission denied.
+
+### 12. List User Loans/Reservations
+- **Input:** User ID (or current user)
+- **Logic:**  
+  - Retrieve all active/past loans or reservations for user.
+- **Output:** List of loans/reservations.
+- **Errors:** None (empty list if none).
+
+### 13. Manage Users (Admin/Librarian)
+- **Input:** User management actions (list, update, delete, assign roles)
+- **Logic:**  
+  - Perform requested action with permission checks.
+- **Output:** Confirmation, user info.
+- **Errors:** User not found, permission denied, invalid input.
+
+---
