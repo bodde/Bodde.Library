@@ -21,7 +21,7 @@ Bodde.Library is a Library Management System application built with ASP.NET Core
 
 1. **Clone the repository:**
    ```sh
-   git clone <your-repo-url>
+   git clone https://github.com/bodde/Bodde.Library
    cd Bodde.Library
    ```
 
