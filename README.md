@@ -69,4 +69,42 @@ This project is licensed under the MIT License.
 
 ---
 
+## System Context & Requirements
+
+**Bodde.Library** is a classic Library Management System. The API is designed following Clean Architecture principles, ensuring separation of concerns and maintainability.
+
+### Core Entities (Domain Layer)
+- **Book**: Represents a book in the library. Attributes: Title, Author(s), ISBN, PublishedYear, Copies, etc.
+- **Author**: Represents an author. Attributes: Name, Biography, etc.
+- **User**: Represents a system user. Attributes: Name, Email, Role, etc.
+- **Role**: Defines user roles (e.g., Admin, Librarian, Member).
+- **Loan**: Represents a book loan. Attributes: Book, User, LoanDate, DueDate, ReturnDate, etc.
+- **Reservation**: Represents a reservation for a book.
+- **Category**: Represents book categories/genres.
+- **Permission**: Defines what actions a role can perform.
+
+### Relationships
+- **Book–Author**: Many-to-many (a book can have multiple authors, an author can write multiple books).
+- **Book–Category**: Many-to-many (a book can belong to multiple categories).
+- **User–Role**: Many-to-one (a user has one role, a role can have many users).
+- **Role–Permission**: Many-to-many (a role can have multiple permissions).
+- **User–Loan**: One-to-many (a user can have multiple loans).
+- **Book–Loan**: One-to-many (a book can be loaned multiple times).
+- **User–Reservation**: One-to-many (a user can have multiple reservations).
+
+### User Roles & Permissions
+- **Admin**: Full access (manage users, books, loans, etc.).
+- **Librarian**: Manage books, loans, reservations, but limited user management.
+- **Member**: Can view/search books, make reservations, borrow/return books.
+
+### Data Visibility
+- **Admins/Librarians**: Can see all data.
+- **Members**: Can see their own loans/reservations and public book data.
+
+### Clean Architecture Layers
+- **Core (Domain)**: Entities, interfaces, business rules.
+- **Application**: Use cases (e.g., BorrowBook, ReturnBook, RegisterUser).
+- **Infrastructure**: Data access, external services.
+- **API**: Controllers, request/response models.
+
 *Bodde.Library - Library Management System*
