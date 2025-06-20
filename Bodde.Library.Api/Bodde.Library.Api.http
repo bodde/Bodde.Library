@@ -1,6 +1,3 @@
 @Bodde.Library.Api_HostAddress = http://localhost:5216
 
-GET {{Bodde.Library.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
 ###
