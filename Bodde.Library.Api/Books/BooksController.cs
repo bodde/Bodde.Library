@@ -1,7 +1,5 @@
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Bodde.Library.Application.Books;
-using Bodde.Library.Core.Books;
 
 namespace Bodde.Library.Api.Books
 {

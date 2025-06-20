@@ -1,5 +1,3 @@
-using System;
-
 namespace Bodde.Library.Core.Books
 {
     public class BookListItemDto
