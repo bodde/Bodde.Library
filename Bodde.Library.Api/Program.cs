@@ -4,11 +4,7 @@ using Bodde.Library.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddInfrastructure(new InfrastructureConfig
-{
-    ConnectionString = "Data Source=library.db",
-    Provider = "Sqlite" // Change to "SqlServer" for SQL Server
-});
+builder.Services.AddInfrastructure(builder.Configuration);
 
 builder.Services.AddApplication();
 builder.Services.AddControllers();

@@ -17,4 +17,11 @@
     <ProjectReference Include="..\Bodde.Library.Infrastructure\Bodde.Library.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="SeedExampleData/Books.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

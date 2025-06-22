@@ -2,6 +2,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Bodde.Library.Core.Books;
 using Bodde.Library.Infrastructure.Books;
+using Bodde.Library.Infrastructure.Services;
+using Microsoft.Extensions.Configuration;
 
 namespace Bodde.Library.Infrastructure
 {
@@ -9,8 +11,15 @@ namespace Bodde.Library.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(
             this IServiceCollection services,
-            InfrastructureConfig config)
+            IConfiguration configuration,
+            string configurationSectionName = "Infrastructure"
+            )
         {
+            // Load configuration from appsettings.json or create a default configuration
+            var config = new InfrastructureConfig();  
+            configuration.GetSection(configurationSectionName).Bind(config);
+
+
             services.AddDbContext(config);
 
             services.AddRepositories();
@@ -22,7 +31,6 @@ namespace Bodde.Library.Infrastructure
             this IServiceCollection services,
             InfrastructureConfig config)
         {
-            // Register EF Core DbContext
             services.AddDbContext<LibraryDbContext>(options =>
             {
                 switch (config.Provider)
@@ -44,6 +52,11 @@ namespace Bodde.Library.Infrastructure
             if (config.ApplyMigrations)
             {
                 services.AddHostedService<MigrationHostedService>();
+            }
+
+            if (config.SeedExampleData)
+            {
+                services.AddHostedService<SeedExampleDataHostedService>();
             }
 
             return services;

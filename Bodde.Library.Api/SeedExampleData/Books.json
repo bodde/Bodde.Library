@@ -1,0 +1,152 @@
+[
+    {
+        "Title": "The Art of Programming",
+        "ISBN": "978-0-123456-01-1",
+        "PublishedYear": 2001,
+        "Copies": 5
+    },
+    {
+        "Title": "C# in Depth",
+        "ISBN": "978-0-123456-02-8",
+        "PublishedYear": 2019,
+        "Copies": 3
+    },
+    {
+        "Title": "Learning Linux",
+        "ISBN": "978-0-123456-03-5",
+        "PublishedYear": 2015,
+        "Copies": 4
+    },
+    {
+        "Title": "Database Design",
+        "ISBN": "978-0-123456-04-2",
+        "PublishedYear": 2012,
+        "Copies": 2
+    },
+    {
+        "Title": "Modern Web Development",
+        "ISBN": "978-0-123456-05-9",
+        "PublishedYear": 2020,
+        "Copies": 6
+    },
+    {
+        "Title": "Algorithms Unlocked",
+        "ISBN": "978-0-123456-06-6",
+        "PublishedYear": 2017,
+        "Copies": 3
+    },
+    {
+        "Title": "Clean Code",
+        "ISBN": "978-0-123456-07-3",
+        "PublishedYear": 2008,
+        "Copies": 7
+    },
+    {
+        "Title": "Refactoring",
+        "ISBN": "978-0-123456-08-0",
+        "PublishedYear": 2018,
+        "Copies": 2
+    },
+    {
+        "Title": "Design Patterns",
+        "ISBN": "978-0-123456-09-7",
+        "PublishedYear": 1994,
+        "Copies": 5
+    },
+    {
+        "Title": "Effective Java",
+        "ISBN": "978-0-123456-10-3",
+        "PublishedYear": 2017,
+        "Copies": 4
+    },
+    {
+        "Title": "Python Crash Course",
+        "ISBN": "978-0-123456-11-0",
+        "PublishedYear": 2016,
+        "Copies": 6
+    },
+    {
+        "Title": "Pro Git",
+        "ISBN": "978-0-123456-12-7",
+        "PublishedYear": 2014,
+        "Copies": 3
+    },
+    {
+        "Title": "You Don't Know JS",
+        "ISBN": "978-0-123456-13-4",
+        "PublishedYear": 2015,
+        "Copies": 5
+    },
+    {
+        "Title": "The Pragmatic Programmer",
+        "ISBN": "978-0-123456-14-1",
+        "PublishedYear": 1999,
+        "Copies": 2
+    },
+    {
+        "Title": "Head First Design Patterns",
+        "ISBN": "978-0-123456-15-8",
+        "PublishedYear": 2004,
+        "Copies": 4
+    },
+    {
+        "Title": "Introduction to Algorithms",
+        "ISBN": "978-0-123456-16-5",
+        "PublishedYear": 2009,
+        "Copies": 3
+    },
+    {
+        "Title": "JavaScript: The Good Parts",
+        "ISBN": "978-0-123456-17-2",
+        "PublishedYear": 2008,
+        "Copies": 2
+    },
+    {
+        "Title": "The Mythical Man-Month",
+        "ISBN": "978-0-123456-18-9",
+        "PublishedYear": 1975,
+        "Copies": 1
+    },
+    {
+        "Title": "Code Complete",
+        "ISBN": "978-0-123456-19-6",
+        "PublishedYear": 2004,
+        "Copies": 4
+    },
+    {
+        "Title": "Structure and Interpretation of Computer Programs",
+        "ISBN": "978-0-123456-20-2",
+        "PublishedYear": 1996,
+        "Copies": 2
+    },
+    {
+        "Title": "The Clean Coder",
+        "ISBN": "978-0-123456-21-9",
+        "PublishedYear": 2011,
+        "Copies": 3
+    },
+    {
+        "Title": "Working Effectively with Legacy Code",
+        "ISBN": "978-0-123456-22-6",
+        "PublishedYear": 2004,
+        "Copies": 2
+    },
+    {
+        "Title": "Continuous Delivery",
+        "ISBN": "978-0-123456-23-3",
+        "PublishedYear": 2010,
+        "Copies": 3
+    },
+    {
+        "Title": "Test-Driven Development",
+        "ISBN": "978-0-123456-24-0",
+        "PublishedYear": 2002,
+        "Copies": 2
+    },
+    {
+        "Title": "Domain-Driven Design",
+        "ISBN": "978-0-123456-25-7",
+        "PublishedYear": 2003,
+        "Copies": 4
+    }
+]  

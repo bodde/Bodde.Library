@@ -1,0 +1,11 @@
+{
+    "sqltools.useNodeRuntime": true,
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "Library.db",
+            "database": "${workspaceFolder:Bodde.Library}/Bodde.Library.Api/library.db"
+        }
+    ]
+}
