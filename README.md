@@ -1,3 +1,35 @@
+## Index
+
+- [Bodde.Library](#boddelibrary)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Build and Run](#build-and-run)
+  - [Running Tests](#running-tests)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [License](#license)
+- [System Context & Requirements](#system-context--requirements)
+  - [Core Entities (Domain Layer)](#core-entities-domain-layer)
+  - [Relationships](#relationships)
+  - [User Roles & Permissions](#user-roles--permissions)
+  - [Data Visibility](#data-visibility)
+  - [Clean Architecture Layers](#clean-architecture-layers)
+- [Classic Use Cases](#classic-use-cases)
+  1. [Register User (External Authentication)](#1-register-user-external-authentication)
+  2. [Login (External Authentication)](#2-login-external-authentication)
+  3. [Assign/Update User Roles and Permissions (Admin/Librarian)](#3-assignupdate-user-roles-and-permissions-adminlibrarian)
+  4. [Add Book](#4-add-book)
+  5. [Update Book](#5-update-book)
+  6. [Delete Book](#6-delete-book)
+  7. [Search/List Books](#7-searchlist-books)
+  8. [Borrow Book (Loan)](#8-borrow-book-loan)
+  9. [Return Book](#9-return-book)
+  10. [Reserve Book](#10-reserve-book)
+  11. [Cancel Reservation](#11-cancel-reservation)
+  12. [List User Loans/Reservations](#12-list-user-loansreservations)
+  13. [Manage Users (Admin/Librarian)](#13-manage-users-adminlibrarian)
+
 # Bodde.Library
 
 Bodde.Library is a Library Management System application built with ASP.NET Core. It provides APIs and infrastructure for managing books, users, and library operations.
@@ -16,6 +48,8 @@ Bodde.Library is a Library Management System application built with ASP.NET Core
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 - [Visual Studio 2022+](https://visualstudio.microsoft.com/) or [Visual Studio Code](https://code.visualstudio.com/)
+- [dotnet-ef CLI tools](https://learn.microsoft.com/ef/core/cli/dotnet) (for database migrations)
+ 
 
 ### Build and Run
 
