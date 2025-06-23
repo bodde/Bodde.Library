@@ -12,7 +12,7 @@ namespace Bodde.Library.Infrastructure
         public static IServiceCollection AddInfrastructure(
             this IServiceCollection services,
             IConfiguration configuration,
-            string configurationSectionName = "Infrastructure"
+            string configurationSectionName = Constants.DefaultConfigurationSectionName
             )
         {
             // Load configuration from appsettings.json or create a default configuration
@@ -35,14 +35,11 @@ namespace Bodde.Library.Infrastructure
             {
                 switch (config.Provider)
                 {
-                    case "SqlServer":
+                    case Constants.Providers.SqlServer:
                         options.UseSqlServer(config.ConnectionString);
                         break;
-                    case "Sqlite":
+                    case Constants.Providers.Sqlite:
                         options.UseSqlite(config.ConnectionString);
-                        break;
-                    case "InMemory":
-                        options.UseInMemoryDatabase(config.ConnectionString);
                         break;
                     default:
                         throw new ArgumentException($"Unsupported provider: {config.Provider}", nameof(config.Provider));

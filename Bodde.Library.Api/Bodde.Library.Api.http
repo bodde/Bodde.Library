@@ -1,3 +1,6 @@
-@Bodde.Library.Api_HostAddress = http://localhost:5216
+@Bodde_Library_Api_HostAddress = http://localhost:5216
 
-###
+### Get all books
+GET {{Bodde_Library_Api_HostAddress}}/api/books
+
+

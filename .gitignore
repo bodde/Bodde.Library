@@ -483,4 +483,6 @@ $RECYCLE.BIN/
 # Vim temporary swap files
 *.swp
 
-Bodde.Library.Api/library.db
+Bodde.Library.Api/*.db
+Bodde.Library.Api/*.db-shm
+Bodde.Library.Api/*.db-wal
