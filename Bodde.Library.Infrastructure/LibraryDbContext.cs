@@ -1,11 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using Bodde.Library.Core.Books;
+using Bodde.Library.Core.Authors;
 
 namespace Bodde.Library.Infrastructure
 {
     public class LibraryDbContext : DbContext
     {
         public DbSet<Book> Books => Set<Book>();
+        public DbSet<Author> Authors => Set<Author>();
+        
         // Add other DbSets as needed
 
         public LibraryDbContext(DbContextOptions<LibraryDbContext> options) : base(options) { }

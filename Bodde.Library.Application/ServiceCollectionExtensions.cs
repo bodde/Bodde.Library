@@ -7,9 +7,12 @@ namespace Bodde.Library.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(ServiceCollectionExtensions).Assembly);
+
             // Register application services here
 
             services.AddScoped<BookService>();
+            services.AddScoped<AuthorService>();
             
             return services;
         }
