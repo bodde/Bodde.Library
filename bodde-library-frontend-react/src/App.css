@@ -1,3 +1,5 @@
-.app-rounded {
-  border-radius: 1em;
+@layer app {
+  .app-rounded {
+    border-radius: 1em;
+  }
 }

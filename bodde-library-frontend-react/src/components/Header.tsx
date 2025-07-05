@@ -6,7 +6,7 @@ interface HeaderProps {
 
 export const Header = ({ onMenuToggle }: HeaderProps) => {
   return (
-    <div className="card app-rounded p-3">
+    <div className="card p-3 bg-primary-reverse">
       <div className="flex align-items-center justify-content-between">
         <Button
           icon="pi pi-bars"
