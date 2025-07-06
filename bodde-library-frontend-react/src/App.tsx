@@ -11,14 +11,17 @@ import 'primeicons/primeicons.css';
 import './App.css';
 
 function App() {
-  const [sidebarVisible, setSidebarVisible] = useState(false);
+  const [sidebarVisible, setSidebarVisible] = useState(true);
 
   return (
     <div className="flex flex-column h-screen">
-      <Header onMenuToggle={() => setSidebarVisible(true)} />
+      <Header onMenuToggle={() => setSidebarVisible(!sidebarVisible)} />
       
       <div className="flex flex-1">
-        <SidebarNav />
+        <SidebarNav 
+          visible={sidebarVisible} 
+          onHide={() => setSidebarVisible(false)} 
+        />
         
         {/* Work area using theme surface */}
         <WorkArea />
@@ -26,11 +29,7 @@ function App() {
       </div>
       
       <Footer />
-      
-      <MobileSidebar 
-        visible={sidebarVisible} 
-        onHide={() => setSidebarVisible(false)} 
-      />
+
     </div>
   );
 }

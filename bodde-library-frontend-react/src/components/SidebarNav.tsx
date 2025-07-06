@@ -1,14 +1,20 @@
+import { Sidebar } from "primereact/sidebar";
 import { AppMenu } from "./AppMenu";
 
-export const SidebarNav = () => {
-  return (
-    <div
-      className="surface-ground p-3 border-right-1 surface-border"
-      style={{ width: "200px" }}
-    >
-      <h4 className="text-color">Navigation</h4>
+interface SidebarNavProps {
+  visible: boolean;
+  onHide: () => void;
+}
 
-      <AppMenu />
-    </div>
+export const SidebarNav = ({ visible, onHide }: SidebarNavProps) => {
+  return (
+    <>
+      {visible && (
+        <div className="surface-ground p-3 border-right-1 surface-border">
+          <h4 className="text-color">Navigation</h4>
+          <AppMenu />
+        </div>
+      )}
+    </>
   );
 };
