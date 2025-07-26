@@ -4,10 +4,8 @@ interface AppMenuProps {
 
 export const AppMenu = ({ onMenuItemClick }: AppMenuProps) => {
   const handleMenuItemClick = () => {
-    // Check if screen size is mobile (you can adjust the breakpoint as needed)
-    const isMobile = window.innerWidth <= 768;
-
-    if (isMobile && onMenuItemClick) {
+    // Handle menu item click logic here
+    if (onMenuItemClick) {
       onMenuItemClick();
     }
   };

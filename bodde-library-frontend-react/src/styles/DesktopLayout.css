@@ -32,8 +32,8 @@
   }
 
   .app-layout.sidebar-hidden .app-sidebar {
-      display: none;
-    }
+    display: none;
+  }
 
   .app-workarea {
     grid-area: workarea;
@@ -46,7 +46,6 @@
     grid-area: footer;
   }
 
-  
   /* Mobile responsive */
   @media (max-width: 768px) {
     .app-layout {
@@ -84,11 +83,5 @@
       z-index: 1000;
       opacity: 0.5;
     }
-  }
-}
-
-@layer app {
-  .app-rounded {
-    border-radius: 1em;
   }
 }

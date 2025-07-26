@@ -7,7 +7,7 @@ interface SidebarNavProps {
 export const SidebarNav = ({ onMenuItemClick }: SidebarNavProps) => {
   return (
 
-        <div className="surface-ground p-3 border-right-1 surface-border h-full">
+        <div className="p-3">
           <AppMenu onMenuItemClick={onMenuItemClick} />
         </div>
 
