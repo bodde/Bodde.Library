@@ -1,3 +1,92 @@
+@layer layout {
+  html,
+  body,
+  #root {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .app-layout {
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "sidebar workarea"
+      "footer footer";
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto 1fr;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .app-header {
+    grid-area: header;
+    z-index: 1000;
+  }
+
+  .app-sidebar {
+    grid-area: sidebar;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-width: 25em;
+    min-width: 15em;
+  }
+
+  .app-layout.sidebar-hidden .app-sidebar {
+      display: none;
+    }
+
+  .app-workarea {
+    grid-area: workarea;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  .app-footer {
+    grid-area: footer;
+  }
+
+  
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .app-layout {
+      grid-template-areas:
+        "header"
+        "workarea"
+        "footer";
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .app-sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 250px;
+      z-index: 1001;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+
+    .app-layout:not(.sidebar-hidden) .app-sidebar {
+      transform: translateX(0);
+    }
+
+    /* Overlay for mobile */
+    .app-layout:not(.sidebar-hidden)::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1000;
+      opacity: 0.5;
+    }
+  }
+}
+
 @layer app {
   .app-rounded {
     border-radius: 1em;

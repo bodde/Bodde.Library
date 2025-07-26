@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Header } from './components/Header';
 import { SidebarNav } from './components/SidebarNav';
 import { WorkArea } from './components/WorkArea';
@@ -14,24 +14,29 @@ function App() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const [sidebarVisible, setSidebarVisible] = useState(!isMobile);
 
-  return (
-    <div className="flex flex-column h-screen">
-      <div>{isMobile.toString()} {sidebarVisible.toString()}</div>
-      <Header onMenuToggle={() => setSidebarVisible(!sidebarVisible)} />
-      
-      <div className="flex flex-1">
-        <SidebarNav 
-          visible={sidebarVisible} 
-          onHide={() => setSidebarVisible(false)} 
-        />
-        
-        {/* Work area using theme surface */}
-        <WorkArea />
+  useEffect(() => {
+    setSidebarVisible(!isMobile);
+  }, [isMobile]);
 
+  return (
+    <div className={`app-layout ${!sidebarVisible ? 'sidebar-hidden' : ''}`}>
+      <div className="app-header">
+        <Header onMenuToggle={() => setSidebarVisible(!sidebarVisible)} />
       </div>
       
-      <Footer />
-
+      <div className="app-sidebar">
+        <SidebarNav 
+          onMenuItemClick={() => setSidebarVisible(!isMobile)} 
+        />
+      </div>
+      
+      <div className="app-workarea">
+        <WorkArea />
+      </div>
+      
+      <div className="app-footer">
+        <Footer />
+      </div>
     </div>
   );
 }

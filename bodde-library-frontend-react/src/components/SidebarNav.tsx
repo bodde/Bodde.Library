@@ -1,19 +1,15 @@
 import { AppMenu } from "./AppMenu";
 
 interface SidebarNavProps {
-  visible: boolean;
-  onHide: () => void;
+  onMenuItemClick: () => void;
 }
 
-export const SidebarNav = ({ visible, onHide }: SidebarNavProps) => {
+export const SidebarNav = ({ onMenuItemClick }: SidebarNavProps) => {
   return (
-    <>
-      {visible && (
-        <div className="surface-ground p-3 border-right-1 surface-border">
-          <h4 className="text-color">Navigation</h4>
-          <AppMenu onMenuItemClick={onHide} />
+
+        <div className="surface-ground p-3 border-right-1 surface-border h-full">
+          <AppMenu onMenuItemClick={onMenuItemClick} />
         </div>
-      )}
-    </>
+
   );
 };
