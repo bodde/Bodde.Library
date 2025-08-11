@@ -4,7 +4,7 @@ import { SidebarNav } from './shell/SidebarNav';
 import { WorkArea } from './shell/WorkArea';
 import { Footer } from './shell/Footer';
 import { useMediaQuery } from 'react-responsive';
-import { Routes, Route } from "react-router";
+import { Routes, Route, useLocation } from "react-router";
 import { Dashboard } from "./dashboard/Dashboard";
 import { BookList } from "./books/BookList";
 
@@ -17,11 +17,31 @@ import './styles/App.css';
 function App() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const [sidebarVisible, setSidebarVisible] = useState(!isMobile);
+  const location = useLocation();
 
 
   useEffect(() => {
     setSidebarVisible(!isMobile);
   }, [isMobile]);
+
+  useEffect(() => {
+    switch (location.pathname) {
+      case "/":
+        document.title = "Dashboard - Bodde Library";
+        break;
+      case "/books":
+        document.title = "Books - Bodde Library";
+        break;
+      case "/authors":
+        document.title = "Authors - Bodde Library";
+        break;
+      case "/reports":
+        document.title = "Reports - Bodde Library";
+        break;
+      default:
+        document.title = "Bodde Library";
+    }
+  }, [location.pathname]);
 
   return (
     <div className={`app-layout surface-0 border-round ${!sidebarVisible ? 'sidebar-hidden' : ''}`}>
