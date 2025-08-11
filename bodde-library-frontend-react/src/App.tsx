@@ -4,6 +4,8 @@ import { SidebarNav } from './components/SidebarNav';
 import { WorkArea } from './components/WorkArea';
 import { Footer } from './components/Footer';
 import { useMediaQuery } from 'react-responsive';
+import { Routes, Route } from "react-router";
+import { Dashboard } from "./dashboard/Dashboard";
 
 import 'primereact/resources/themes/lara-dark-indigo/theme.css';
 import 'primeflex/primeflex.css';
@@ -33,7 +35,12 @@ function App() {
       </div>
       
       <div className="app-workarea m-1 border-round">
-        <WorkArea />
+        <Routes>
+          <Route element={<WorkArea />}>
+            <Route index element={<Dashboard />} />
+            {/* Add more child routes here */}
+          </Route>
+        </Routes>
       </div>
       
       <div className="app-footer surface-0 m-1">
