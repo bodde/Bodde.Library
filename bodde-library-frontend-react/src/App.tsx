@@ -6,6 +6,7 @@ import { Footer } from './shell/Footer';
 import { useMediaQuery } from 'react-responsive';
 import { Routes, Route } from "react-router";
 import { Dashboard } from "./dashboard/Dashboard";
+import { BookList } from "./books/BookList";
 
 import 'primereact/resources/themes/lara-dark-indigo/theme.css';
 import 'primeflex/primeflex.css';
@@ -38,6 +39,9 @@ function App() {
         <Routes>
           <Route element={<WorkArea />}>
             <Route index element={<Dashboard />} />
+            <Route path="books" element={<BookList />} />
+            <Route path="authors" element={<div>Authors (todo)</div>} />
+            <Route path="reports" element={<div>Reports (todo)</div>} />
             {/* Add more child routes here */}
           </Route>
         </Routes>

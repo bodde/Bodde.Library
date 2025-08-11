@@ -1,41 +1,58 @@
+import { NavLink, Link } from "react-router";
+
+
 interface AppMenuProps {
   onMenuItemClick?: () => void;
 }
 
 export const AppMenu = ({ onMenuItemClick }: AppMenuProps) => {
-  const handleMenuItemClick = () => {
-    // Handle menu item click logic here
-    if (onMenuItemClick) {
-      onMenuItemClick();
-    }
-  };
-
   return (
-    <ul className="list-none p-0 m-0">
-      <li
-        className="p-2 hover:bg-primary cursor-pointer border-round"
-        onClick={handleMenuItemClick}
+    <nav>
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          `p-2 cursor-pointer border-round flex align-items-center ${
+            isActive ? "bg-primary text-primary-contrast" : "hover:bg-primary"
+          }`
+        }
+        end
+        onClick={onMenuItemClick}
       >
         <i className="pi pi-home mr-2"></i>Dashboard
-      </li>
-      <li
-        className="p-2 hover:bg-primary cursor-pointer border-round"
-        onClick={handleMenuItemClick}
+      </NavLink>
+      <NavLink
+        to="/books"
+        className={({ isActive }) =>
+          `p-2 cursor-pointer border-round flex align-items-center ${
+            isActive ? "bg-primary text-primary-contrast" : "hover:bg-primary"
+          }`
+        }
+        onClick={onMenuItemClick}
       >
         <i className="pi pi-book mr-2"></i>Books
-      </li>
-      <li
-        className="p-2 hover:bg-primary cursor-pointer border-round"
-        onClick={handleMenuItemClick}
+      </NavLink>
+      <NavLink
+        to="/authors"
+        className={({ isActive }) =>
+          `p-2 cursor-pointer border-round flex align-items-center ${
+            isActive ? "bg-primary text-primary-contrast" : "hover:bg-primary"
+          }`
+        }
+        onClick={onMenuItemClick}
       >
         <i className="pi pi-users mr-2"></i>Authors
-      </li>
-      <li
-        className="p-2 hover:bg-primary cursor-pointer border-round"
-        onClick={handleMenuItemClick}
+      </NavLink>
+      <NavLink
+        to="/reports"
+        className={({ isActive }) =>
+          `p-2 cursor-pointer border-round flex align-items-center ${
+            isActive ? "bg-primary text-primary-contrast" : "hover:bg-primary"
+          }`
+        }
+        onClick={onMenuItemClick}
       >
         <i className="pi pi-chart-bar mr-2"></i>Reports
-      </li>
-    </ul>
+      </NavLink>
+    </nav>
   );
 };
