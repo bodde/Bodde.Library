@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Header } from './components/Header';
-import { SidebarNav } from './components/SidebarNav';
-import { WorkArea } from './components/WorkArea';
-import { Footer } from './components/Footer';
+import { Header } from './shell/Header';
+import { SidebarNav } from './shell/SidebarNav';
+import { WorkArea } from './shell/WorkArea';
+import { Footer } from './shell/Footer';
 import { useMediaQuery } from 'react-responsive';
 import { Routes, Route } from "react-router";
 import { Dashboard } from "./dashboard/Dashboard";
@@ -34,7 +34,7 @@ function App() {
         />
       </div>
       
-      <div className="app-workarea m-1 border-round">
+      <div className="app-workarea m-1 surface-card p-2 border-round">
         <Routes>
           <Route element={<WorkArea />}>
             <Route index element={<Dashboard />} />
