@@ -1,4 +1,4 @@
-import { NavLink, Link } from "react-router";
+import { NavLink } from "react-router";
 
 
 interface AppMenuProps {
@@ -12,7 +12,7 @@ export const AppMenu = ({ onMenuItemClick }: AppMenuProps) => {
         to="/"
         className={({ isActive }) =>
           `p-2 cursor-pointer border-round flex align-items-center ${
-            isActive ? "bg-primary text-primary-contrast" : "hover:bg-primary"
+            isActive ? "bg-primary text-primary-contrast" : "hover:bg-primary-reverse"
           }`
         }
         end
@@ -24,7 +24,7 @@ export const AppMenu = ({ onMenuItemClick }: AppMenuProps) => {
         to="/books"
         className={({ isActive }) =>
           `p-2 cursor-pointer border-round flex align-items-center ${
-            isActive ? "bg-primary text-primary-contrast" : "hover:bg-primary"
+            isActive ? "bg-primary text-primary-contrast" : "hover:bg-primary-reverse"
           }`
         }
         onClick={onMenuItemClick}
@@ -35,7 +35,7 @@ export const AppMenu = ({ onMenuItemClick }: AppMenuProps) => {
         to="/authors"
         className={({ isActive }) =>
           `p-2 cursor-pointer border-round flex align-items-center ${
-            isActive ? "bg-primary text-primary-contrast" : "hover:bg-primary"
+            isActive ? "bg-primary text-primary-contrast" : "hover:bg-primary-reverse"
           }`
         }
         onClick={onMenuItemClick}
@@ -46,7 +46,7 @@ export const AppMenu = ({ onMenuItemClick }: AppMenuProps) => {
         to="/reports"
         className={({ isActive }) =>
           `p-2 cursor-pointer border-round flex align-items-center ${
-            isActive ? "bg-primary text-primary-contrast" : "hover:bg-primary"
+            isActive ? "bg-primary text-primary-contrast" : "hover:bg-primary-reverse"
           }`
         }
         onClick={onMenuItemClick}
